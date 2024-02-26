@@ -1,0 +1,24 @@
+URL : https://www.kaggle.com/datasets/gregorut/videogamesales
+DDL :
+
+CREATE TABLE IF NOT EXISTS table_m3 (
+    "Rank" BIGINT PRIMARY KEY,
+    "Name" VARCHAR(255),
+    "Platform" VARCHAR(50),
+    "Year" DECIMAL(10, 2),
+    "Genre" VARCHAR(50),
+    "Publisher" VARCHAR(100),
+    "NA_Sales" DECIMAL(10, 2),
+    "EU_Sales" DECIMAL(10, 2),
+    "JP_Sales" DECIMAL(10, 2),
+    "Other_Sales" DECIMAL(10, 2),
+    "Global_Sales" DECIMAL(10, 2)
+);
+
+DML :
+
+COPY table_m3 ("Rank", "Name", "Platform", "Year", "Genre", "Publisher", "NA_Sales", "EU_Sales", "JP_Sales", "Other_Sales", "Global_Sales")
+FROM 'E:/Ardi/Postgre/data/P2M3_rahardiansyah_fatoni_data_raw.csv' 
+DELIMITER ',' 
+-- 'N/A' turned to NULL
+CSV NULL 'N/A' HEADER;
